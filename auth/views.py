@@ -1,11 +1,17 @@
 
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.contrib.auth import login as auth_login,authenticate as authcheck
+from django.contrib.auth.views import LoginView
 
 from auth import forms
 
+class Login(LoginView):
+    template_name='auth/login.html'
+    redirect_authenticated_user = True
+
 # Create your views here.
+"""""
 def login(request):
     loginForm=forms.LoginForm()
     error=None
@@ -27,3 +33,4 @@ def login(request):
         "error":error
     }
     return render(request,'auth/login.html',context)
+"""
