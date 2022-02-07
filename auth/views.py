@@ -1,14 +1,18 @@
 
+from distutils.log import Log
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.contrib.auth import login as auth_login,authenticate as authcheck
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView,LogoutView
 
 from auth import forms
 
 class Login(LoginView):
     template_name='auth/login.html'
     redirect_authenticated_user = True
+
+class Logout(LogoutView):
+    pass
 
 # Create your views here.
 """""
